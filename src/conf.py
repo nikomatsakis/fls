@@ -23,6 +23,7 @@ author = "The Ferrocene Developers"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "myst_parser",
     "ferrocene_spec",
     "ferrocene_spec_lints",
     "ferrocene_toctrees",
