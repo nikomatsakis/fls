@@ -1,3 +1,6 @@
+```{default-domain} spec
+```
+
 # Macros By Example
 
 ```{syntax}
