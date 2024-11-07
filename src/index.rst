@@ -29,7 +29,6 @@ Ferrocene Language Specification
    program-structure-and-compilation
    unsafety
    macros
-   macros-by-example
    ffi
    inline-assembly
 

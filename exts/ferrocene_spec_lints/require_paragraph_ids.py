@@ -2,8 +2,8 @@
 # SPDX-FileCopyrightText: The Ferrocene Developers
 
 from docutils import nodes
+from ferrocene_spec.utils import is_fls_id
 from ferrocene_spec.definitions import DefIdNode
-
 
 def check(app, raise_error):
     for document in app.env.found_docs:
@@ -31,7 +31,7 @@ def check_has_ids(node, raise_error):
                 raise_error,
             )
     elif nodes.section is type(node):
-        if not any(name.startswith("fls_") for name in node["names"]):
+        if not any(is_fls_id(name) for name in node["names"]):
             raise_error("section should have an id", location=node)
     else:
         should_not_have_id(node, type(node).__name__, raise_error)
@@ -42,7 +42,7 @@ def check_has_ids(node, raise_error):
 
 def check_does_not_have_ids(node, raise_error):
     if nodes.section is type(node):
-        if any(name.startswith("fls_") for name in node["names"]):
+        if any(is_fls_id(name) for name in node["names"]):
             raise_error("section should not have an id", location=node)
     else:
         should_not_have_id(node, type(node).__name__, raise_error)
@@ -67,5 +67,5 @@ def is_definition(node):
     return (
         DefIdNode is type(node)
         and node["def_kind"] == "paragraph"
-        and node["def_id"].startswith("fls_")
+        and is_fls_id(node["def_id"])
     )

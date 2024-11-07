@@ -137,6 +137,9 @@ The specification of the Rust language is separated into:
 The specification is normative, except for the material in each of the items
 listed below, which is informative:
 
+* :dp:`fls_fQ0O3Cwx50Gt`
+  Text under an "Overview" heading.
+
 * :dp:`fls_ciixfg9jhv42`
   Text under an "Examples" heading.
 
