@@ -7,7 +7,25 @@
 
 (fls-83182bfa9uqb)=
 
-# Macro specification rules
+# Macro definitions
+
+(fls-IdW7yAny1V2K)=
+## Overview
+
+{dp}`fls_05eWLtlLOmxJ`
+`macro_rules` allows users to define syntax extension in a declarative way.  We
+call such extensions "macros by example" or simply "macros".
+
+{dp}`fls_LFVx5ozSIR2o`
+Each macro by example has a name, and one or more _rules_. Each rule has two
+parts: a _matcher_, describing the syntax that it matches, and a _transcriber_,
+describing the syntax that will replace a successfully matched invocation. Both
+the matcher and the transcriber must be surrounded by delimiters. Macros can
+expand to expressions, statements, items (including traits, impls, and foreign
+items), types, or patterns.
+
+(fls-EAPTc766Ghck)=
+## Specification
 
 ```{rubric} Legality Rules
 ```
@@ -30,7 +48,7 @@ distinct forms:
 
 (fls-xa7lp0zg1ol2)=
 
-## Declarative Macros
+### Declarative Macros
 
 {dp}`fls_ikzjsq8heyk6`
 A {ds}`MacroMatchToken` is any {t}`lexical element` in category
@@ -72,7 +90,7 @@ macro_rules! answer_to_life {
 
 (fls-8nzypdu9j3ge)=
 
-### Metavariables
+#### Metavariables
 
 ```{rubric} Syntax
 ```
@@ -170,7 +188,7 @@ macro_rules! square {
 
 (fls-k01lsksqtq1r)=
 
-### Repetition
+#### Repetition
 
 ```{rubric} Syntax
 ```
@@ -265,7 +283,7 @@ macro_rules! generate_pairs {
 
 (fls-wn1i6hzg2ff7)=
 
-## Procedural Macros
+### Procedural Macros
 
 ```{rubric} Legality Rules
 ```
@@ -289,7 +307,7 @@ A {t}`macro implementation function` enters the {t}`name` of the
 
 (fls-2d6bqnpy6tvs)=
 
-### Function-like Macros
+#### Function-like Macros
 
 ```{rubric} Legality Rules
 ```
@@ -337,7 +355,7 @@ pub fn make_answer_to_life(_items: TokenStream) -> TokenStream {
 
 (fls-o8s3r7m90q59)=
 
-### Derive Macros
+#### Derive Macros
 
 ```{rubric} Legality Rules
 ```
@@ -395,7 +413,7 @@ pub fn derive_answer_to_life(_items: TokenStream) -> TokenStream {
 
 (fls-4vjbkm4ceymk)=
 
-### Attribute Macros
+#### Attribute Macros
 
 ```{rubric} Legality Rules
 ```
@@ -462,7 +480,7 @@ pub fn output_and_return_item
 
 (fls-vnvt40pa48n8)=
 
-## Macro Invocation
+### Macro Invocation
 
 ```{rubric} Syntax
 ```
@@ -555,7 +573,7 @@ fn attribute_macro_invoker() {}
 
 (fls-wjldgtio5o75)=
 
-## Macro Expansion
+### Macro Expansion
 
 ```{rubric} Legality Rules
 ```
@@ -711,7 +729,7 @@ fn attribute_macro_invoker() {}
 
 (fls-4apk1exafxii)=
 
-### Macro Matching
+#### Macro Matching
 
 ```{rubric} Legality Rules
 ```
@@ -722,7 +740,7 @@ fn attribute_macro_invoker() {}
 
 (fls-n3ktmjqf87qb)=
 
-#### Rule Matching
+##### Rule Matching
 
 ```{rubric} Legality Rules
 ```
@@ -753,7 +771,7 @@ resolved {t}`declarative macro`.
 
 (fls-qpx6lgapce57)=
 
-#### Token Matching
+##### Token Matching
 
 ```{rubric} Legality Rules
 ```
@@ -860,7 +878,7 @@ leftover {t}`[token]s` after {t}`macro matching`.
 
 (fls-ym00b6ewf4n3)=
 
-### Macro Transcription
+#### Macro Transcription
 
 ```{rubric} Legality Rules
 ```
@@ -985,7 +1003,7 @@ the second {t}`metavariable`, and so on.
 
 (fls-xlfo7di0gsqz)=
 
-## Hygiene
+### Hygiene
 
 {dp}`fls_7ezc7ncs678f`
 {t}`Hygiene` is a property of {t}`[macro]s` and {t}`[identifier]s` that appear
